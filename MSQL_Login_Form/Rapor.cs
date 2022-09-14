@@ -31,17 +31,6 @@ namespace MSQL_Login_Form
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            string aktiflik = "1";
-            if (chb_Gorevde.Checked == true)
-            {
-                aktiflik = "1";
-            }
-            else
-            {
-                aktiflik = "0";
-            }
-
-
 
             DialogResult dialog = new DialogResult();
             dialog = MessageBox.Show("Bilgiler kayıt edilsin mi?", "Kayıt", MessageBoxButtons.YesNo);

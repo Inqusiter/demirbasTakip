@@ -30,8 +30,6 @@ namespace MSQL_Login_Form
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Giris));
-            this.pnl_GirisTop = new System.Windows.Forms.Panel();
-            this.btn_GirisKapat = new System.Windows.Forms.Button();
             this.pnl_logo = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnl_giris = new System.Windows.Forms.Panel();
@@ -47,7 +45,8 @@ namespace MSQL_Login_Form
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_sifre = new System.Windows.Forms.TextBox();
             this.lbl_KullaniciSifreSlogan = new System.Windows.Forms.Label();
-            this.pnl_GirisTop.SuspendLayout();
+            this.pnl_GirisTop = new System.Windows.Forms.Panel();
+            this.btn_GirisKapat = new System.Windows.Forms.Button();
             this.pnl_logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnl_giris.SuspendLayout();
@@ -55,47 +54,18 @@ namespace MSQL_Login_Form
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_kullaniciSifre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnl_GirisTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnl_GirisTop
-            // 
-            this.pnl_GirisTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
-            this.pnl_GirisTop.Controls.Add(this.btn_GirisKapat);
-            this.pnl_GirisTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_GirisTop.Location = new System.Drawing.Point(0, 0);
-            this.pnl_GirisTop.Name = "pnl_GirisTop";
-            this.pnl_GirisTop.Padding = new System.Windows.Forms.Padding(5);
-            this.pnl_GirisTop.Size = new System.Drawing.Size(897, 34);
-            this.pnl_GirisTop.TabIndex = 3;
-            this.pnl_GirisTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_GirisTop_MouseDown);
-            this.pnl_GirisTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_GirisTop_MouseMove);
-            this.pnl_GirisTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_GirisTop_MouseUp);
-            // 
-            // btn_GirisKapat
-            // 
-            this.btn_GirisKapat.BackColor = System.Drawing.Color.Transparent;
-            this.btn_GirisKapat.FlatAppearance.BorderSize = 0;
-            this.btn_GirisKapat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btn_GirisKapat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_GirisKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_GirisKapat.ForeColor = System.Drawing.Color.White;
-            this.btn_GirisKapat.Location = new System.Drawing.Point(867, 5);
-            this.btn_GirisKapat.Name = "btn_GirisKapat";
-            this.btn_GirisKapat.Size = new System.Drawing.Size(24, 23);
-            this.btn_GirisKapat.TabIndex = 9;
-            this.btn_GirisKapat.Text = "X";
-            this.btn_GirisKapat.UseVisualStyleBackColor = false;
-            this.btn_GirisKapat.Click += new System.EventHandler(this.btn_GirisKapat_Click);
             // 
             // pnl_logo
             // 
-            this.pnl_logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnl_logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
             this.pnl_logo.Controls.Add(this.pictureBox3);
             this.pnl_logo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_logo.Location = new System.Drawing.Point(0, 34);
             this.pnl_logo.Name = "pnl_logo";
             this.pnl_logo.Padding = new System.Windows.Forms.Padding(5);
-            this.pnl_logo.Size = new System.Drawing.Size(417, 405);
+            this.pnl_logo.Size = new System.Drawing.Size(417, 366);
             this.pnl_logo.TabIndex = 4;
             // 
             // pictureBox3
@@ -105,8 +75,8 @@ namespace MSQL_Login_Form
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(5, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(407, 395);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.Size = new System.Drawing.Size(407, 356);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
@@ -121,7 +91,7 @@ namespace MSQL_Login_Form
             this.pnl_giris.Location = new System.Drawing.Point(417, 34);
             this.pnl_giris.Name = "pnl_giris";
             this.pnl_giris.Padding = new System.Windows.Forms.Padding(5);
-            this.pnl_giris.Size = new System.Drawing.Size(480, 405);
+            this.pnl_giris.Size = new System.Drawing.Size(483, 366);
             this.pnl_giris.TabIndex = 5;
             // 
             // btn_giris
@@ -161,7 +131,7 @@ namespace MSQL_Login_Form
             this.panel1.Location = new System.Drawing.Point(73, 166);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(334, 40);
-            this.panel1.TabIndex = 7;
+            this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -212,7 +182,7 @@ namespace MSQL_Login_Form
             this.pnl_kullaniciSifre.Location = new System.Drawing.Point(73, 212);
             this.pnl_kullaniciSifre.Name = "pnl_kullaniciSifre";
             this.pnl_kullaniciSifre.Size = new System.Drawing.Size(334, 40);
-            this.pnl_kullaniciSifre.TabIndex = 4;
+            this.pnl_kullaniciSifre.TabIndex = 1;
             // 
             // pictureBox2
             // 
@@ -255,12 +225,42 @@ namespace MSQL_Login_Form
             this.lbl_KullaniciSifreSlogan.TabIndex = 1;
             this.lbl_KullaniciSifreSlogan.Text = "Şifre:";
             // 
+            // pnl_GirisTop
+            // 
+            this.pnl_GirisTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
+            this.pnl_GirisTop.Controls.Add(this.btn_GirisKapat);
+            this.pnl_GirisTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_GirisTop.Location = new System.Drawing.Point(0, 0);
+            this.pnl_GirisTop.Name = "pnl_GirisTop";
+            this.pnl_GirisTop.Padding = new System.Windows.Forms.Padding(5);
+            this.pnl_GirisTop.Size = new System.Drawing.Size(900, 34);
+            this.pnl_GirisTop.TabIndex = 3;
+            this.pnl_GirisTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_GirisTop_MouseDown);
+            this.pnl_GirisTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_GirisTop_MouseMove);
+            this.pnl_GirisTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_GirisTop_MouseUp);
+            // 
+            // btn_GirisKapat
+            // 
+            this.btn_GirisKapat.BackColor = System.Drawing.Color.Transparent;
+            this.btn_GirisKapat.FlatAppearance.BorderSize = 0;
+            this.btn_GirisKapat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btn_GirisKapat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_GirisKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_GirisKapat.ForeColor = System.Drawing.Color.White;
+            this.btn_GirisKapat.Location = new System.Drawing.Point(867, 5);
+            this.btn_GirisKapat.Name = "btn_GirisKapat";
+            this.btn_GirisKapat.Size = new System.Drawing.Size(24, 23);
+            this.btn_GirisKapat.TabIndex = 9;
+            this.btn_GirisKapat.Text = "X";
+            this.btn_GirisKapat.UseVisualStyleBackColor = false;
+            this.btn_GirisKapat.Click += new System.EventHandler(this.btn_GirisKapat_Click);
+            // 
             // Giris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.ClientSize = new System.Drawing.Size(897, 439);
+            this.ClientSize = new System.Drawing.Size(900, 400);
             this.Controls.Add(this.pnl_giris);
             this.Controls.Add(this.pnl_logo);
             this.Controls.Add(this.pnl_GirisTop);
@@ -268,7 +268,6 @@ namespace MSQL_Login_Form
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Giris";
             this.Text = "LSGIRIS";
-            this.pnl_GirisTop.ResumeLayout(false);
             this.pnl_logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnl_giris.ResumeLayout(false);
@@ -279,13 +278,12 @@ namespace MSQL_Login_Form
             this.pnl_kullaniciSifre.ResumeLayout(false);
             this.pnl_kullaniciSifre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnl_GirisTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnl_GirisTop;
         private System.Windows.Forms.Panel pnl_logo;
         private System.Windows.Forms.Panel pnl_giris;
         private System.Windows.Forms.Label lbl_slogan;
@@ -300,8 +298,9 @@ namespace MSQL_Login_Form
         private System.Windows.Forms.TextBox txt_kullaniciAd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_giris;
-        private System.Windows.Forms.Button btn_GirisKapat;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel pnl_GirisTop;
+        private System.Windows.Forms.Button btn_GirisKapat;
     }
 }
 

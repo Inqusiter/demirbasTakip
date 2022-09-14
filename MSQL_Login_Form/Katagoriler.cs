@@ -14,14 +14,12 @@ namespace MSQL_Login_Form
 {
     public partial class Katagoriler : Form
     {
+        VeriTabani veriTabani = new VeriTabani();
+
         public Katagoriler()
         {
             InitializeComponent();
         }
-
-        SqlConnection baglanti = new SqlConnection("Data Source=192.168.60.128;Initial Catalog=demirbas;User ID=sa;Password=Berat123456789");
-
-
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
@@ -95,19 +93,17 @@ namespace MSQL_Login_Form
 
             try
             {
-                baglanti.Open();
-
+                veriTabani.baglanti.Open();
                 //SQL baglandık datayı tek tek atadık
-                SqlDataAdapter katagoriler = new SqlDataAdapter("SELECT KATAGORI FROM katagoriler", baglanti);
+                SqlDataAdapter katagoriler = new SqlDataAdapter("SELECT KATAGORI FROM katagoriler", veriTabani.baglanti);
                 DataTable KatagorilerData = new DataTable();
                 katagoriler.Fill(KatagorilerData);
                 for (int i = 0; i < KatagorilerData.Rows.Count; i++)
                 {
                     cmBox_Katagori.Items.Add(KatagorilerData.Rows[i]["KATAGORI"].ToString());
                     lstBox_Katagoriler.Items.Add(KatagorilerData.Rows[i]["KATAGORI"].ToString());
-
                 }
-                baglanti.Close();
+                veriTabani.baglanti.Close();
 
             }
             catch (global::System.Exception)
@@ -124,18 +120,16 @@ namespace MSQL_Login_Form
             {
                 try
                 {
-
                     string veri = "INSERT INTO katagoriler (KATAGORI) VALUES (" + "'" + txt_KatagoriEkle.Text + "'" + " )";
-                    SqlConnection baglanti = new SqlConnection("Data Source=192.168.60.128;Initial Catalog=demirbas;User ID=sa;Password=Berat123456789");
 
                     // nesne oluşturduk sc ismi verdik ve sqlQuery deşikenini baglantı adlı database içinde çalıştırdık
-                    SqlCommand sc = new SqlCommand(veri, baglanti);
+                    SqlCommand sc = new SqlCommand(veri, veriTabani.baglanti);
 
                     //sql baglandik
-                    baglanti.Open();
+                    veriTabani.baglanti.Open();
                     // sorgu sonucu bir şey beklemiyoruz bunu kullandık
                     sc.ExecuteNonQuery();
-                    baglanti.Close();
+                    veriTabani.baglanti.Close();
 
                     MessageBox.Show("Kayıt Başarılı", "Kaydedildi");
 
@@ -151,6 +145,36 @@ namespace MSQL_Login_Form
             }
  
 
+        }
+
+        private void btn_Sil_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+            dialog = MessageBox.Show("Bilgiler silinsin mi?", "Silme", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                try
+                {
+                    string veri = "DELETE FROM katagoriler WHERE KATAGORI =" + "'" + lstBox_Katagoriler.SelectedItem + "'" + "";
+
+                    // nesne oluşturduk sc ismi verdik ve sqlQuery deşikenini baglantı adlı database içinde çalıştırdık
+                    SqlCommand sc = new SqlCommand(veri, veriTabani.baglanti);
+
+                    //sql baglandik
+                    veriTabani.baglanti.Open();
+                    // sorgu sonucu bir şey beklemiyoruz bunu kullandık
+                    sc.ExecuteNonQuery();
+                    veriTabani.baglanti.Close();
+
+                    MessageBox.Show("Silme işlemi başarılı", "Personel Silindi");
+
+                }
+                catch
+                {
+
+                    MessageBox.Show("hata");
+                }
+            }
         }
     }
 }

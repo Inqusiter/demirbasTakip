@@ -18,10 +18,8 @@ namespace MSQL_Login_Form
         public  int PersonelID;
         public string PersonelAD;
         public string PersonelYetki;
-
-        SqlDataReader sqlVeriOku;
-        SqlCommand sqlKomut;
-
+        // nesne tanımladık 
+        VeriTabani veriTabani = new VeriTabani();
 
         public Giris()
         {
@@ -34,29 +32,22 @@ namespace MSQL_Login_Form
             string kullaniciSifre = txt_sifre.Text;
 
 
-            // veri tabanı nesne olarak tanımlama ve bagalnma
-            SqlConnection baglanti = new SqlConnection("Data Source=192.168.60.128;Initial Catalog=demirbas;User ID=sa;Password=Berat123456789");
-
-            //degiskeni sql komutu olarak tanımlama
-            sqlKomut = new SqlCommand();
             // baglantı acma
-            baglanti.Open();
-            sqlKomut.Connection = baglanti;
-            sqlKomut.CommandText = "Select * From personel where AD='" + kullaniciAd + "'And PAROLA='" + kullaniciSifre + "'";
+            veriTabani.baglanti.Open();
+            veriTabani.sqlKomut.Connection = veriTabani.baglanti;
+
+            veriTabani.sqlKomut.CommandText = "Select * From personel where AD='" + kullaniciAd + "'And PAROLA='" + kullaniciSifre + "'";
             Anasayfa anasayfa = new Anasayfa();
             try
             {
-                sqlVeriOku = sqlKomut.ExecuteReader();
-                if (sqlVeriOku.Read())
+                veriTabani.sqlVeriOku = veriTabani.sqlKomut.ExecuteReader();
+                if (veriTabani.sqlVeriOku.Read())
                 {
                     // sql sorgusu içerisinde  çekilen ve belirlenen stünü bir değişkene atar
-                    PersonelID = Convert.ToInt32(sqlVeriOku["ID"].ToString());
-                    PersonelAD = sqlVeriOku["AD"].ToString();
-                    PersonelYetki = sqlVeriOku["YETKI"].ToString();
+                    PersonelID = Convert.ToInt32(veriTabani.sqlVeriOku["ID"].ToString());
+                    PersonelAD = veriTabani.sqlVeriOku["AD"].ToString();
+                    PersonelYetki = veriTabani.sqlVeriOku["YETKI"].ToString();
                     // diğer formda ki nesneye ulaşmak için privateden publice aldık
-                    anasayfa.lbl_TopPersonelID.Text = Convert.ToString(PersonelID);
-                    anasayfa.lbl_TopPersonelAD.Text = PersonelAD;
-                    anasayfa.lbl_TopPersonelRutbe.Text = PersonelYetki;
                     Personel.PersonelID = PersonelID;
                     Personel.PersonelAD = PersonelAD;
                     Personel.PersonelRutbe = PersonelYetki;
@@ -67,7 +58,7 @@ namespace MSQL_Login_Form
                 else
                 {
                     MessageBox.Show("Bir şeyler yanlış!");
-                    baglanti.Close();
+                    veriTabani.baglanti.Close();
                 }
             }
             catch (Exception)
@@ -75,10 +66,7 @@ namespace MSQL_Login_Form
                 MessageBox.Show("Ciddi bir problem işe karşılaştık yöneticiye ulaşın!");
             }
 
-
         }
-
-
 
 
 

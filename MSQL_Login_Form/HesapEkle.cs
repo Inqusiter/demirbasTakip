@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
+
 namespace MSQL_Login_Form
 {
-    public partial class Hesap : Form
+    public partial class HesapEkle : Form
     {
         public int PersonelID = Personel.PersonelID;
         public string PersonelAD = Personel.PersonelAD;
         public string PersonelRutbe = Personel.PersonelRutbe;
+        VeriTabani veriTabani = new VeriTabani();
 
-        VeriTabani veritabani = new VeriTabani();
-
-        public Hesap()
+        public HesapEkle()
         {
             InitializeComponent();
 
@@ -30,26 +30,28 @@ namespace MSQL_Login_Form
         }
         private void btn_Guncelle_Click(object sender, EventArgs e)
         {
-            // bug var bakılacak şifreler uyuşmuyorsa hata vermiyor
-            if ((txt_Sifre1.Text == txt_Sifre2.Text) && (txt_Sifre1.Text != string.Empty) && (txt_Sifre2.Text != string.Empty))
+            // sifre kontrol degiskene atancak ve sql yazdırılcak sonra silinecek. kullanıcı sil eklenecek
+
+            if ((txt_pekleSifre.Text == txt_pekleSifreT.Text) && (txt_pekleSifre.Text != string.Empty) && (txt_pekleSifreT.Text != string.Empty))
             {
+                string pekleSifre = txt_pekleSifre.Text;
                 DialogResult dialog = new DialogResult();
                 dialog = MessageBox.Show("Bilgiler kayıt edilsin mi?", "Kayıt", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
                     try
                     {
-                        string veriKaydet = "UPDATE  personel  SET PAROLA = '" + txt_Sifre2.Text + "'  WHERE ID = '" + PersonelID + "'";
+                        string veriKaydet = "INSERT INTO personel (YETKI, AD , SOYAD, PAROLA) VALUES (" + "'" + txt_pekleKidem.Text + "'" + "," + "'" + txt_pekleAd.Text + "'" + "," + "'" + txt_pekleSad.Text + "'" + "," + "'" + pekleSifre + "'"  + " )";
 
-                        SqlCommand sc2 = new SqlCommand(veriKaydet, veritabani.baglanti);
+                        SqlCommand sc2 = new SqlCommand(veriKaydet, veriTabani.baglanti);
 
                         //sql baglandik
-                        veritabani.baglanti.Open();
+                        veriTabani.baglanti.Open();
 
                         // sorgu sonucu bir şey okuttuk ve ekledik bunu kullandık
                         sc2.ExecuteNonQuery();
-                        veritabani.baglanti.Close();
-                        MessageBox.Show("Veri güncellendi");
+                        veriTabani.baglanti.Close();
+                        MessageBox.Show("Personel Eklendi");
                         this.Close();
                     }
                     catch
@@ -61,7 +63,11 @@ namespace MSQL_Login_Form
                 {
                     MessageBox.Show("İşlem Yapılmadı! Şifre Kutularından Birisi Boş Veya Şifreler Uyuşmuyor!");
                 }
+
             }
+
+
+
         }
 
 
