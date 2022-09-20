@@ -40,9 +40,12 @@ namespace MSQL_Login_Form
             this.btn_Anasayfa_ZimmetGiris = new System.Windows.Forms.Button();
             this.btn_AnaSayfa_Profil = new System.Windows.Forms.Button();
             this.btn_Anasayfa_Katagoriler = new System.Windows.Forms.Button();
-            this.btn_Anasayfa_Rapor = new System.Windows.Forms.Button();
-            this.lbl_UrunToplam = new System.Windows.Forms.Label();
+            this.lbl_DemirbasToplam = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_HurdaToplam = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_AktifKullanilan = new System.Windows.Forms.Label();
             this.pnl_AnasayfaTop.SuspendLayout();
             this.pnl_AnaSayfaMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -112,7 +115,6 @@ namespace MSQL_Login_Form
             this.pnl_AnaSayfaMenu.Controls.Add(this.btn_Anasayfa_ZimmetGiris);
             this.pnl_AnaSayfaMenu.Controls.Add(this.btn_AnaSayfa_Profil);
             this.pnl_AnaSayfaMenu.Controls.Add(this.btn_Anasayfa_Katagoriler);
-            this.pnl_AnaSayfaMenu.Controls.Add(this.btn_Anasayfa_Rapor);
             this.pnl_AnaSayfaMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_AnaSayfaMenu.Location = new System.Drawing.Point(0, 0);
             this.pnl_AnaSayfaMenu.Name = "pnl_AnaSayfaMenu";
@@ -127,9 +129,9 @@ namespace MSQL_Login_Form
             this.btn_Anasayfa_Yonetici.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Anasayfa_Yonetici.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_Anasayfa_Yonetici.ForeColor = System.Drawing.Color.White;
-            this.btn_Anasayfa_Yonetici.Location = new System.Drawing.Point(0, 369);
+            this.btn_Anasayfa_Yonetici.Location = new System.Drawing.Point(3, 317);
             this.btn_Anasayfa_Yonetici.Name = "btn_Anasayfa_Yonetici";
-            this.btn_Anasayfa_Yonetici.Size = new System.Drawing.Size(160, 59);
+            this.btn_Anasayfa_Yonetici.Size = new System.Drawing.Size(154, 59);
             this.btn_Anasayfa_Yonetici.TabIndex = 8;
             this.btn_Anasayfa_Yonetici.Text = "Yönetici";
             this.btn_Anasayfa_Yonetici.UseVisualStyleBackColor = true;
@@ -155,7 +157,7 @@ namespace MSQL_Login_Form
             this.btn_Anasayfa_ZimmetGiris.ForeColor = System.Drawing.Color.White;
             this.btn_Anasayfa_ZimmetGiris.Location = new System.Drawing.Point(3, 252);
             this.btn_Anasayfa_ZimmetGiris.Name = "btn_Anasayfa_ZimmetGiris";
-            this.btn_Anasayfa_ZimmetGiris.Size = new System.Drawing.Size(160, 59);
+            this.btn_Anasayfa_ZimmetGiris.Size = new System.Drawing.Size(154, 59);
             this.btn_Anasayfa_ZimmetGiris.TabIndex = 6;
             this.btn_Anasayfa_ZimmetGiris.Text = "Zimmet Giris";
             this.btn_Anasayfa_ZimmetGiris.UseVisualStyleBackColor = true;
@@ -169,9 +171,9 @@ namespace MSQL_Login_Form
             this.btn_AnaSayfa_Profil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AnaSayfa_Profil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_AnaSayfa_Profil.ForeColor = System.Drawing.Color.White;
-            this.btn_AnaSayfa_Profil.Location = new System.Drawing.Point(0, 147);
+            this.btn_AnaSayfa_Profil.Location = new System.Drawing.Point(3, 147);
             this.btn_AnaSayfa_Profil.Name = "btn_AnaSayfa_Profil";
-            this.btn_AnaSayfa_Profil.Size = new System.Drawing.Size(160, 59);
+            this.btn_AnaSayfa_Profil.Size = new System.Drawing.Size(154, 59);
             this.btn_AnaSayfa_Profil.TabIndex = 4;
             this.btn_AnaSayfa_Profil.Text = "Profil";
             this.btn_AnaSayfa_Profil.UseVisualStyleBackColor = true;
@@ -185,51 +187,79 @@ namespace MSQL_Login_Form
             this.btn_Anasayfa_Katagoriler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Anasayfa_Katagoriler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_Anasayfa_Katagoriler.ForeColor = System.Drawing.Color.White;
-            this.btn_Anasayfa_Katagoriler.Location = new System.Drawing.Point(0, 193);
+            this.btn_Anasayfa_Katagoriler.Location = new System.Drawing.Point(3, 193);
             this.btn_Anasayfa_Katagoriler.Name = "btn_Anasayfa_Katagoriler";
-            this.btn_Anasayfa_Katagoriler.Size = new System.Drawing.Size(160, 59);
+            this.btn_Anasayfa_Katagoriler.Size = new System.Drawing.Size(154, 59);
             this.btn_Anasayfa_Katagoriler.TabIndex = 3;
             this.btn_Anasayfa_Katagoriler.Text = "Katagoriler";
             this.btn_Anasayfa_Katagoriler.UseVisualStyleBackColor = true;
             this.btn_Anasayfa_Katagoriler.Click += new System.EventHandler(this.btn_Anasayfa_Katagoriler_Click);
             // 
-            // btn_Anasayfa_Rapor
+            // lbl_DemirbasToplam
             // 
-            this.btn_Anasayfa_Rapor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
-            this.btn_Anasayfa_Rapor.FlatAppearance.BorderSize = 0;
-            this.btn_Anasayfa_Rapor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
-            this.btn_Anasayfa_Rapor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Anasayfa_Rapor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_Anasayfa_Rapor.ForeColor = System.Drawing.Color.White;
-            this.btn_Anasayfa_Rapor.Location = new System.Drawing.Point(0, 304);
-            this.btn_Anasayfa_Rapor.Name = "btn_Anasayfa_Rapor";
-            this.btn_Anasayfa_Rapor.Size = new System.Drawing.Size(160, 59);
-            this.btn_Anasayfa_Rapor.TabIndex = 2;
-            this.btn_Anasayfa_Rapor.Text = "Rapor";
-            this.btn_Anasayfa_Rapor.UseVisualStyleBackColor = true;
-            this.btn_Anasayfa_Rapor.Click += new System.EventHandler(this.btn_Anasayfa_Rapor_Click);
-            // 
-            // lbl_UrunToplam
-            // 
-            this.lbl_UrunToplam.AutoSize = true;
-            this.lbl_UrunToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_UrunToplam.ForeColor = System.Drawing.Color.White;
-            this.lbl_UrunToplam.Location = new System.Drawing.Point(407, 110);
-            this.lbl_UrunToplam.Name = "lbl_UrunToplam";
-            this.lbl_UrunToplam.Size = new System.Drawing.Size(86, 31);
-            this.lbl_UrunToplam.TabIndex = 20;
-            this.lbl_UrunToplam.Text = "label1";
+            this.lbl_DemirbasToplam.AutoSize = true;
+            this.lbl_DemirbasToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_DemirbasToplam.ForeColor = System.Drawing.Color.White;
+            this.lbl_DemirbasToplam.Location = new System.Drawing.Point(890, 156);
+            this.lbl_DemirbasToplam.Name = "lbl_DemirbasToplam";
+            this.lbl_DemirbasToplam.Size = new System.Drawing.Size(29, 31);
+            this.lbl_DemirbasToplam.TabIndex = 20;
+            this.lbl_DemirbasToplam.Text = "0";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(179, 110);
+            this.label1.Location = new System.Drawing.Point(784, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 31);
+            this.label1.Size = new System.Drawing.Size(234, 31);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Toplam Demirbaş:";
+            this.label1.Text = "Toplam Demirbaş ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(517, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(211, 31);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Hurda Demirbaş";
+            // 
+            // lbl_HurdaToplam
+            // 
+            this.lbl_HurdaToplam.AutoSize = true;
+            this.lbl_HurdaToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_HurdaToplam.ForeColor = System.Drawing.Color.Yellow;
+            this.lbl_HurdaToplam.Location = new System.Drawing.Point(603, 156);
+            this.lbl_HurdaToplam.Name = "lbl_HurdaToplam";
+            this.lbl_HurdaToplam.Size = new System.Drawing.Size(29, 31);
+            this.lbl_HurdaToplam.TabIndex = 22;
+            this.lbl_HurdaToplam.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(280, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 31);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Aktif Demirbaş";
+            // 
+            // lbl_AktifKullanilan
+            // 
+            this.lbl_AktifKullanilan.AutoSize = true;
+            this.lbl_AktifKullanilan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_AktifKullanilan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbl_AktifKullanilan.Location = new System.Drawing.Point(360, 156);
+            this.lbl_AktifKullanilan.Name = "lbl_AktifKullanilan";
+            this.lbl_AktifKullanilan.Size = new System.Drawing.Size(29, 31);
+            this.lbl_AktifKullanilan.TabIndex = 25;
+            this.lbl_AktifKullanilan.Text = "0";
             // 
             // Anasayfa
             // 
@@ -237,8 +267,12 @@ namespace MSQL_Login_Form
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1200, 600);
+            this.Controls.Add(this.lbl_AktifKullanilan);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_HurdaToplam);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbl_UrunToplam);
+            this.Controls.Add(this.lbl_DemirbasToplam);
             this.Controls.Add(this.pnl_AnasayfaTop);
             this.Controls.Add(this.pnl_AnaSayfaMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -260,14 +294,17 @@ namespace MSQL_Login_Form
         private System.Windows.Forms.Button btn_AnasayfaKapat;
         private System.Windows.Forms.Panel pnl_AnaSayfaMenu;
         private System.Windows.Forms.Button btn_AnasayfaCikis;
-        private System.Windows.Forms.Button btn_Anasayfa_Rapor;
         public System.Windows.Forms.Label lbl_TopPersonelRutbe;
         private System.Windows.Forms.Button btn_Anasayfa_Katagoriler;
         private System.Windows.Forms.Button btn_AnaSayfa_Profil;
         private System.Windows.Forms.Button btn_Anasayfa_ZimmetGiris;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btn_Anasayfa_Yonetici;
-        private System.Windows.Forms.Label lbl_UrunToplam;
+        private System.Windows.Forms.Label lbl_DemirbasToplam;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_HurdaToplam;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_AktifKullanilan;
     }
 }

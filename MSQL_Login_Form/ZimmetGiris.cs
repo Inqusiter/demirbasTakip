@@ -15,6 +15,9 @@ namespace MSQL_Login_Form
     public partial class ZimmetGiris : Form
     {
         VeriTabani veriTabani = new VeriTabani();
+
+        string hurdaDurum;
+
         public ZimmetGiris()
         {
 
@@ -22,15 +25,16 @@ namespace MSQL_Login_Form
 
         }
 
-        private void Kullanici_goster()
+        private void Verileri_Getir()
         {
             try
             {
                 veriTabani.baglanti.Open();
 
                 SqlDataAdapter demirbas_listele = new SqlDataAdapter
-                    ("select URUN AS[Ürün], URUNKOD, URUNSERINO AS[Ürün Seri], MARKA AS[Marka], TARIH AS[Tarih], ZIMMETLIKISI AS[Zimmetli Kişi]," +
-                    "ZIMMETLIBIRIM AS[Zimmetli Birim], ZIMMETLIBIRIMDETAY AS[Zimmetli.B Detay], ZIMMETKATAGORI AS[Zimmet Katagori], ZIMMETKULLANICI AS[Zimmetli Kullanıcı]   from demirbasGirisListe Order By URUN ASC", veriTabani.baglanti);
+                    ("select URUN AS[Ürün], URUNID, SERINO AS[Ürün Seri], MARKA AS[Marka], TARIH AS[Tarih], SORUMLU AS[Zimmetli Kişi]," +
+                    "BIRIM AS[Zimmetli Birim], BIRIMDETAY AS[Zimmetli.B Detay], KATAGORI AS[Zimmet Katagori], KULLANICI AS[Zimmetli Kullanıcı] , HURDA   from demirbasGirisListe Order By URUN ASC", veriTabani.baglanti);
+               
                 DataTable dataTable = new DataTable();
                 demirbas_listele.Fill(dataTable);
                 dtbl_DemirbasListe.DataSource = dataTable;
@@ -45,7 +49,7 @@ namespace MSQL_Login_Form
 
         private void btn_Guncelle_Click(object sender, EventArgs e)
         {
-            Kullanici_goster();
+            Verileri_Getir();
         }
 
         int i;
@@ -56,7 +60,7 @@ namespace MSQL_Login_Form
             i = e.RowIndex;
             DataGridViewRow satir = dtbl_DemirbasListe.Rows[i];
             txt_Urun.Text = satir.Cells[0].Value.ToString();
-            lbl_UrunKod.Text = satir.Cells[1].Value.ToString();
+            lbl_UrunID.Text = satir.Cells[1].Value.ToString();
             txt_SeriNo.Text = satir.Cells[2].Value.ToString();
             txt_ZimmetMarka.Text = satir.Cells[3].Value.ToString();
             txt_ZimmetTarih.Text = satir.Cells[4].Value.ToString();
@@ -65,31 +69,47 @@ namespace MSQL_Login_Form
             txt_ZimmetBirimDetay.Text = satir.Cells[7].Value.ToString();
             cmBox_AnaKatagori.Text = satir.Cells[8].Value.ToString();
             txt_ZimmetKullanici.Text = satir.Cells[9].Value.ToString();
+            hurdaDurum = satir.Cells[10].Value.ToString();
+
+            if (hurdaDurum =="0")
+            {
+                btn_Hurda.BackColor = Color.White;
+            }
+            else if (hurdaDurum == "1")
+            {
+                btn_Hurda.BackColor = Color.Black;
+            }
+            lbl_HurdaDurum.Text = hurdaDurum;
 
         }
 
         private void btn_Ekle_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult ekleTiklama = new DialogResult();
+            ekleTiklama = MessageBox.Show("Ürün eklensin mi?", "Evet", MessageBoxButtons.YesNo);
+            if (ekleTiklama == DialogResult.Yes)
             {
-                string veri = "INSERT INTO demirbasGirisListe (URUN, URUNSERINO , MARKA, TARIH, ZIMMETLIKISI, ZIMMETLIBIRIM, ZIMMETLIBIRIMDETAY, ZIMMETKATAGORI, ZIMMETKULLANICI) VALUES (" + "'" +txt_Urun.Text+ "'" + "," + "'" + txt_SeriNo.Text + "'" + "," + "'" + txt_ZimmetMarka.Text + "'" + "," + "'" + txt_ZimmetTarih.Text + "'" + "," + "'" + txt_ZimmetliKisi.Text + "'" + "," +
-                    "'" + Cmbox_Birimler.SelectedItem + "'" + "," + "'" + txt_ZimmetBirimDetay.Text + "'" + "," + "'" + cmBox_AnaKatagori.SelectedItem + "'" + "," + "'" + txt_ZimmetKullanici.Text + "'" + " )";
+                try
+                {
+                    string veri = "INSERT INTO demirbasGirisListe (URUN, SERINO , MARKA, TARIH, SORUMLU, BIRIM, BIRIMDETAY, KATAGORI, KULLANICI, HURDA) VALUES (" + "'" + txt_Urun.Text + "'" + "," + "'" + txt_SeriNo.Text + "'" + "," + "'" + txt_ZimmetMarka.Text + "'" + "," + "'" + txt_ZimmetTarih.Text + "'" + "," + "'" + txt_ZimmetliKisi.Text + "'" + "," +
+                        "'" + Cmbox_Birimler.SelectedItem + "'" + "," + "'" + txt_ZimmetBirimDetay.Text + "'" + "," + "'" + cmBox_AnaKatagori.SelectedItem + "'" + "," + "'" + txt_ZimmetKullanici.Text + "'" + "," + "'0'" + ")";
 
-                // nesne oluşturduk sc ismi verdik ve sqlQuery deşikenini baglantı adlı database içinde çalıştırdık
-                SqlCommand sc = new SqlCommand(veri, veriTabani.baglanti);
+                    // nesne oluşturduk sc ismi verdik ve sqlQuery deşikenini baglantı adlı database içinde çalıştırdık
+                    SqlCommand sc = new SqlCommand(veri, veriTabani.baglanti);
 
-                //sql baglandik
-                veriTabani.baglanti.Open();
-                // sorgu sonucu bir şey beklemiyoruz bunu kullandık
-                sc.ExecuteNonQuery();
-                veriTabani.baglanti.Close();
+                    //sql baglandik
+                    veriTabani.baglanti.Open();
+                    // sorgu sonucu bir şey beklemiyoruz bunu kullandık
+                    sc.ExecuteNonQuery();
+                    veriTabani.baglanti.Close();
 
-                MessageBox.Show("Kayıt Başarılı","Kaydedildi");
-                Kullanici_goster();
-            }
-            catch 
-            {
-                MessageBox.Show("hata");
+                    MessageBox.Show("Kayıt Başarılı", "Kaydedildi");
+                    Verileri_Getir();
+                }
+                catch
+                {
+                    MessageBox.Show("hata");
+                }
             }
 
         }
@@ -97,13 +117,13 @@ namespace MSQL_Login_Form
         private void btn_Sil_Click(object sender, EventArgs e)
         {
             {
-                 DialogResult dialog = new DialogResult();
-                dialog = MessageBox.Show("Bilgiler silinsin mi?", "Silme", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+                 DialogResult silTiklama = new DialogResult();
+                silTiklama = MessageBox.Show("Bilgiler silinsin mi?", "Silme", MessageBoxButtons.YesNo);
+            if (silTiklama == DialogResult.Yes)
                 {
                 try
                 {
-                    string veri = "DELETE FROM demirbasGirisListe WHERE URUNKOD =" + "'" + lbl_UrunKod.Text+ "'" + "";
+                    string veri = "DELETE FROM demirbasGirisListe WHERE URUNID =" + "'" + lbl_UrunID.Text+ "'" + "";
 
                     // nesne oluşturduk sc ismi verdik ve sqlQuery deşikenini baglantı adlı database içinde çalıştırdık
                     SqlCommand sc = new SqlCommand(veri, veriTabani.baglanti);
@@ -115,7 +135,7 @@ namespace MSQL_Login_Form
                     veriTabani.baglanti.Close();
 
                     MessageBox.Show("Silme işlemi başarılı", "Personel Silindi");
-                    Kullanici_goster();
+                    Verileri_Getir();
                 }
                 catch
                     {
@@ -129,14 +149,14 @@ namespace MSQL_Login_Form
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialog = new DialogResult();
-            dialog = MessageBox.Show("Bilgiler kayıt edilsin mi?", "Kayıt", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+            DialogResult kaydetTiklama = new DialogResult();
+            kaydetTiklama = MessageBox.Show("Bilgiler kayıt edilsin mi?", "Kayıt", MessageBoxButtons.YesNo);
+            if (kaydetTiklama == DialogResult.Yes)
             {
                 try
                 {
 
-                    string veriKaydet = "UPDATE  demirbasGirisListe  SET URUN = '" + txt_Urun.Text + "' ,URUNSERINO = '" + txt_SeriNo.Text + "' ,MARKA = '" + txt_ZimmetMarka.Text+ "' , TARIH = '" + txt_ZimmetTarih.Text + "' , ZIMMETLIKISI = '"+txt_ZimmetliKisi.Text+"' , ZIMMETLIBIRIM = '" + Cmbox_Birimler.Text+ "' , ZIMMETLIBIRIMDETAY = '" + txt_ZimmetBirimDetay.Text + "' ,ZIMMETKATAGORI = '" + Cmbox_Birimler.Text + "' ,ZIMMETKULLANICI = '" + txt_ZimmetKullanici.Text+ "'  WHERE URUNKOD = '" + lbl_UrunKod.Text + "'";
+                    string veriKaydet = "UPDATE  demirbasGirisListe  SET URUN = '" + txt_Urun.Text + "' ,SERINO = '" + txt_SeriNo.Text + "' ,MARKA = '" + txt_ZimmetMarka.Text+ "' , TARIH = '" + txt_ZimmetTarih.Text + "' , SORUMLU = '"+txt_ZimmetliKisi.Text+"' , BIRIM = '" + Cmbox_Birimler.Text+ "' , BIRIMDETAY = '" + txt_ZimmetBirimDetay.Text + "' ,KATAGORI = '" + Cmbox_Birimler.Text + "' ,KULLANICI = '" + txt_ZimmetKullanici.Text+ "'  WHERE URUNID = '" + lbl_UrunID.Text + "'";
 
                     SqlCommand sc2 = new SqlCommand(veriKaydet, veriTabani.baglanti);
 
@@ -149,7 +169,7 @@ namespace MSQL_Login_Form
                     veriTabani.baglanti.Close();
                     MessageBox.Show("Veri güncellendi");
 
-                    Kullanici_goster();
+                    Verileri_Getir();
                 }
                 catch
                 {
@@ -162,6 +182,50 @@ namespace MSQL_Login_Form
             }
 
         }
+
+        private void btn_Hurda_Click(object sender, EventArgs e)
+        {
+            DialogResult hurdaTiklama = new DialogResult();
+            hurdaTiklama = MessageBox.Show("Seçili seri no lu ürün hurdaya alınsın mı?", "Evet", MessageBoxButtons.YesNo);
+            if (hurdaTiklama == DialogResult.Yes)
+            {
+                try
+                {
+                    if (hurdaDurum == "0")
+                    {
+                        hurdaDurum = "1";
+                    }
+                    else
+                    {
+                        hurdaDurum = "0";
+                    }
+
+                    string veriKaydet = "UPDATE  demirbasGirisListe  SET HURDA = '" + hurdaDurum + "'  WHERE URUNID = '" + lbl_UrunID.Text + "'";
+
+                    SqlCommand sc2 = new SqlCommand(veriKaydet, veriTabani.baglanti);
+
+
+                    //sql baglandik
+                    veriTabani.baglanti.Open();
+
+                    // sorgu sonucu bir şey okuttuk ve ekledik bunu kullandık
+                    sc2.ExecuteNonQuery();
+                    veriTabani.baglanti.Close();
+                    MessageBox.Show("Veri güncellendi");
+
+                    Verileri_Getir();
+                }
+                catch
+                {
+                    MessageBox.Show("HATA!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("İşlem Yapılmadı!");
+            }
+        }
+
 
         private bool surukle = false;
         private Point dragCursorPoint;
@@ -195,21 +259,9 @@ namespace MSQL_Login_Form
             Application.ExitThread();
         }
 
-        private void btn_Anasayfa_Rapor_Click(object sender, EventArgs e)
-        {
-            Rapor rapor = new Rapor();
-            rapor.Show();
-            this.Close();
-        }
-        private void btn_Anasayfa_Katagoriler_Click(object sender, EventArgs e)
-        {
-            Katagoriler katagoriler = new Katagoriler();
-            katagoriler.Show();
-            this.Close();
-        }
 
 
-        private void Anasayfa_Load(object sender, EventArgs e)
+        private void ZimmetGiris_Load(object sender, EventArgs e)
         {
 
             try
@@ -233,12 +285,6 @@ namespace MSQL_Login_Form
                 MessageBox.Show("error");
             }
 
-        }
-
-        private void btn_AnaSayfa_Hesap_Click(object sender, EventArgs e)
-        {
-            Hesap hesap = new Hesap();
-            hesap.Show();
         }
 
     }

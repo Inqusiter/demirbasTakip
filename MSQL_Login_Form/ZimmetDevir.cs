@@ -23,7 +23,7 @@ namespace MSQL_Login_Form
 
         }
 
-        private void Kullanici_goster()
+        private void Verileri_Getir()
         {
             try
             {
@@ -47,7 +47,7 @@ namespace MSQL_Login_Form
 
         private void btn_Guncelle_Click(object sender, EventArgs e)
         {
-            Kullanici_goster();
+            Verileri_Getir();
 
         }
 
@@ -89,7 +89,7 @@ namespace MSQL_Login_Form
                 veriTabani.baglanti.Close();
 
                 MessageBox.Show("Kayıt Başarılı","Kaydedildi");
-                Kullanici_goster();
+                Verileri_Getir();
 
             }
             catch 
@@ -122,7 +122,7 @@ namespace MSQL_Login_Form
                     veriTabani.baglanti.Close();
 
                     MessageBox.Show("Silme işlemi başarılı", "Personel Silindi");
-                    Kullanici_goster();
+                    Verileri_Getir();
 
                 }
                 catch
@@ -155,7 +155,7 @@ namespace MSQL_Login_Form
                     veriTabani.baglanti.Close();
                     MessageBox.Show("Veri güncellendi");
 
-                    Kullanici_goster();
+                    Verileri_Getir();
 
                 }
                 catch
@@ -202,12 +202,6 @@ namespace MSQL_Login_Form
             Application.ExitThread();
         }
 
-        private void btn_Anasayfa_Rapor_Click(object sender, EventArgs e)
-        {
-            Rapor rapor = new Rapor();
-            rapor.Show();
-            this.Close();
-        }
         private void btn_Anasayfa_Katagoriler_Click(object sender, EventArgs e)
         {
             Katagoriler katagoriler = new Katagoriler();

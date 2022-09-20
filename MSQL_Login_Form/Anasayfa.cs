@@ -14,6 +14,7 @@ namespace MSQL_Login_Form
 {
     public partial class Anasayfa : Form
     {
+        VeriTabani veriTabani = new VeriTabani();
 
         public Anasayfa()
         {
@@ -52,12 +53,6 @@ namespace MSQL_Login_Form
             Application.ExitThread();
         }
 
-        private void btn_Anasayfa_Rapor_Click(object sender, EventArgs e)
-        {
-            Rapor rapor = new Rapor();
-            rapor.Show();
-            this.Hide();
-        }
         private void btn_Anasayfa_Katagoriler_Click(object sender, EventArgs e)
         {
             Katagoriler katagoriler = new Katagoriler();
@@ -82,32 +77,34 @@ namespace MSQL_Login_Form
             hesapekle.Show();
         }
 
-        private void fillChart()
+        private void demirbasIstatisleri()
         {
+            veriTabani.baglanti.Open();
 
-            SqlConnection baglanti = new SqlConnection("Data Source=192.168.60.128;Initial Catalog=demirbas;User ID=sa;Password=Berat123456789");
+            // sql sorgusu ile sütün sayısını aldık sonra sql komut oluşturduk içine stringi attık sonra int oluşturdumuz stun sayısına dönen sonucu attık ve labele yazdık
+            string sqlkomutUrunSayisi = "Select count(URUN) from demirbasGirisListe";
+            SqlCommand cmdUrunSayisi = new SqlCommand(sqlkomutUrunSayisi, veriTabani.baglanti);
+            int stunSayisi = Convert.ToInt32(cmdUrunSayisi.ExecuteScalar());
+            lbl_DemirbasToplam.Text = Convert.ToString(stunSayisi);
 
-            DataSet ds = new DataSet();
+            // hurda sayisi için
+            string sqlkomutHurdaSayisi = "SELECT count(HURDA) FROM demirbasGirisListe WHERE HURDA in ('0') ";
+            SqlCommand cmdHurdaSayisi = new SqlCommand(sqlkomutHurdaSayisi, veriTabani.baglanti);
+            int hurdaStunSayisi = Convert.ToInt32(cmdHurdaSayisi.ExecuteScalar());
+            lbl_HurdaToplam.Text = Convert.ToString(hurdaStunSayisi);
 
-            baglanti.Open();
+            // kullanilan sayisi için
+            string sqlkomut = "SELECT count(HURDA) FROM demirbasGirisListe WHERE HURDA in ('1') ";
+            SqlCommand cmdKullanilanSayisi = new SqlCommand(sqlkomut, veriTabani.baglanti);
+            int aktifKullanilanSayisi = Convert.ToInt32(cmdHurdaSayisi.ExecuteScalar());
+            lbl_AktifKullanilan.Text = Convert.ToString(aktifKullanilanSayisi);
 
-            // sql stun sayısını hesaplattık
-            string sql = "Select count(URUN) from demirbasGirisListe";
-            SqlCommand cmd = new SqlCommand(sql, baglanti);
-            int stun = Convert.ToInt32(cmd.ExecuteScalar());
-
-            SqlDataAdapter adapt = new SqlDataAdapter("Select URUN from demirbasGirisListe", baglanti);
-
-
-            baglanti.Close();
-
-            lbl_UrunToplam.Text = Convert.ToString(stun);
-
+            veriTabani.baglanti.Close();
         }
 
         private void Anasayfa_Load(object sender, EventArgs e)
         {
-            fillChart();
+            demirbasIstatisleri();
         }
     }
 }

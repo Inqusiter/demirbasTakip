@@ -33,6 +33,7 @@ namespace MSQL_Login_Form
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Katagoriler));
             this.btn_Guncelle = new System.Windows.Forms.Button();
             this.pnl_AnasayfaTop = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_AnasayfaKapat = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.seçToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@ namespace MSQL_Login_Form
             this.txt_KatagoriEkle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Sil = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnl_AnasayfaTop.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.pnl_AnaSayfaMenu.SuspendLayout();
@@ -82,6 +82,17 @@ namespace MSQL_Login_Form
             this.pnl_AnasayfaTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_AnasayfaTop_MouseDown);
             this.pnl_AnasayfaTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_AnasayfaTop_MouseMove);
             this.pnl_AnasayfaTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_AnasayfaTop_MouseUp);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(291, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(398, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Katagori Ekleme, silme ve görüntülemek sekmesi";
             // 
             // btn_AnasayfaKapat
             // 
@@ -162,7 +173,7 @@ namespace MSQL_Login_Form
             this.btn_Profil_Rapor.ForeColor = System.Drawing.Color.White;
             this.btn_Profil_Rapor.Location = new System.Drawing.Point(0, 152);
             this.btn_Profil_Rapor.Name = "btn_Profil_Rapor";
-            this.btn_Profil_Rapor.Size = new System.Drawing.Size(160, 59);
+            this.btn_Profil_Rapor.Size = new System.Drawing.Size(157, 59);
             this.btn_Profil_Rapor.TabIndex = 1;
             this.btn_Profil_Rapor.Text = "Katagoriler";
             this.btn_Profil_Rapor.UseVisualStyleBackColor = true;
@@ -174,7 +185,7 @@ namespace MSQL_Login_Form
             this.pictureBox1.Location = new System.Drawing.Point(-3, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(160, 155);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -269,17 +280,6 @@ namespace MSQL_Login_Form
             this.btn_Sil.Text = "Sil";
             this.btn_Sil.UseVisualStyleBackColor = false;
             this.btn_Sil.Click += new System.EventHandler(this.btn_Sil_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(291, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(398, 20);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Katagori Ekleme, silme ve görüntülemek sekmesi";
             // 
             // Katagoriler
             // 

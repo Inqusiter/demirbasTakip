@@ -31,12 +31,12 @@ namespace MSQL_Login_Form
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZimmetGiris));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_AnasayfaTop = new System.Windows.Forms.Panel();
-            this.lbl_UrunKod = new System.Windows.Forms.Label();
+            this.lbl_UrunID = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_AnasayfaCikis = new System.Windows.Forms.Button();
@@ -78,6 +78,9 @@ namespace MSQL_Login_Form
             this.panel3 = new System.Windows.Forms.Panel();
             this.txt_Urun = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_Hurda = new System.Windows.Forms.Button();
+            this.lbl_HurdaDurum = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.pnl_AnasayfaTop.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.pnl_AnaSayfaMenu.SuspendLayout();
@@ -97,7 +100,9 @@ namespace MSQL_Login_Form
             // pnl_AnasayfaTop
             // 
             this.pnl_AnasayfaTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(33)))), ((int)(((byte)(65)))));
-            this.pnl_AnasayfaTop.Controls.Add(this.lbl_UrunKod);
+            this.pnl_AnasayfaTop.Controls.Add(this.lbl_HurdaDurum);
+            this.pnl_AnasayfaTop.Controls.Add(this.label12);
+            this.pnl_AnasayfaTop.Controls.Add(this.lbl_UrunID);
             this.pnl_AnasayfaTop.Controls.Add(this.label10);
             this.pnl_AnasayfaTop.Controls.Add(this.label5);
             this.pnl_AnasayfaTop.Controls.Add(this.btn_AnasayfaCikis);
@@ -110,16 +115,16 @@ namespace MSQL_Login_Form
             this.pnl_AnasayfaTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_AnasayfaTop_MouseMove);
             this.pnl_AnasayfaTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_AnasayfaTop_MouseUp);
             // 
-            // lbl_UrunKod
+            // lbl_UrunID
             // 
-            this.lbl_UrunKod.AutoSize = true;
-            this.lbl_UrunKod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_UrunKod.ForeColor = System.Drawing.Color.White;
-            this.lbl_UrunKod.Location = new System.Drawing.Point(431, 17);
-            this.lbl_UrunKod.Name = "lbl_UrunKod";
-            this.lbl_UrunKod.Size = new System.Drawing.Size(19, 20);
-            this.lbl_UrunKod.TabIndex = 3;
-            this.lbl_UrunKod.Text = "0";
+            this.lbl_UrunID.AutoSize = true;
+            this.lbl_UrunID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_UrunID.ForeColor = System.Drawing.Color.White;
+            this.lbl_UrunID.Location = new System.Drawing.Point(431, 17);
+            this.lbl_UrunID.Name = "lbl_UrunID";
+            this.lbl_UrunID.Size = new System.Drawing.Size(19, 20);
+            this.lbl_UrunID.TabIndex = 3;
+            this.lbl_UrunID.Text = "0";
             // 
             // label10
             // 
@@ -208,7 +213,7 @@ namespace MSQL_Login_Form
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(0, 145);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 59);
+            this.button1.Size = new System.Drawing.Size(157, 59);
             this.button1.TabIndex = 6;
             this.button1.Text = "Ara / Devret";
             this.button1.UseVisualStyleBackColor = false;
@@ -219,7 +224,7 @@ namespace MSQL_Login_Form
             this.pictureBox1.Location = new System.Drawing.Point(-3, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 146);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -228,10 +233,10 @@ namespace MSQL_Login_Form
             this.dtbl_DemirbasListe.AllowUserToAddRows = false;
             this.dtbl_DemirbasListe.AllowUserToDeleteRows = false;
             this.dtbl_DemirbasListe.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dtbl_DemirbasListe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.dtbl_DemirbasListe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtbl_DemirbasListe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -239,33 +244,33 @@ namespace MSQL_Login_Form
             this.dtbl_DemirbasListe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtbl_DemirbasListe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtbl_DemirbasListe.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtbl_DemirbasListe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtbl_DemirbasListe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtbl_DemirbasListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtbl_DemirbasListe.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtbl_DemirbasListe.DefaultCellStyle = dataGridViewCellStyle7;
             this.dtbl_DemirbasListe.EnableHeadersVisualStyles = false;
             this.dtbl_DemirbasListe.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
             this.dtbl_DemirbasListe.Location = new System.Drawing.Point(194, 265);
             this.dtbl_DemirbasListe.Name = "dtbl_DemirbasListe";
             this.dtbl_DemirbasListe.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtbl_DemirbasListe.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtbl_DemirbasListe.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dtbl_DemirbasListe.RowHeadersVisible = false;
             this.dtbl_DemirbasListe.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dtbl_DemirbasListe.Size = new System.Drawing.Size(881, 323);
@@ -276,11 +281,11 @@ namespace MSQL_Login_Form
             // 
             this.btn_Guncelle.BackColor = System.Drawing.Color.Yellow;
             this.btn_Guncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guncelle.Location = new System.Drawing.Point(714, 224);
+            this.btn_Guncelle.Location = new System.Drawing.Point(682, 229);
             this.btn_Guncelle.Name = "btn_Guncelle";
             this.btn_Guncelle.Size = new System.Drawing.Size(60, 30);
             this.btn_Guncelle.TabIndex = 12;
-            this.btn_Guncelle.Text = "Güncelle";
+            this.btn_Guncelle.Text = "Yenile";
             this.btn_Guncelle.UseVisualStyleBackColor = false;
             this.btn_Guncelle.Click += new System.EventHandler(this.btn_Guncelle_Click);
             // 
@@ -481,7 +486,7 @@ namespace MSQL_Login_Form
             this.btn_Ekle.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_Ekle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Ekle.ForeColor = System.Drawing.Color.Black;
-            this.btn_Ekle.Location = new System.Drawing.Point(516, 224);
+            this.btn_Ekle.Location = new System.Drawing.Point(484, 229);
             this.btn_Ekle.Name = "btn_Ekle";
             this.btn_Ekle.Size = new System.Drawing.Size(60, 30);
             this.btn_Ekle.TabIndex = 9;
@@ -527,7 +532,7 @@ namespace MSQL_Login_Form
             this.btn_Kaydet.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_Kaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Kaydet.ForeColor = System.Drawing.Color.Black;
-            this.btn_Kaydet.Location = new System.Drawing.Point(648, 224);
+            this.btn_Kaydet.Location = new System.Drawing.Point(616, 229);
             this.btn_Kaydet.Name = "btn_Kaydet";
             this.btn_Kaydet.Size = new System.Drawing.Size(60, 30);
             this.btn_Kaydet.TabIndex = 11;
@@ -542,7 +547,7 @@ namespace MSQL_Login_Form
             this.btn_Sil.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_Sil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Sil.ForeColor = System.Drawing.Color.Black;
-            this.btn_Sil.Location = new System.Drawing.Point(582, 224);
+            this.btn_Sil.Location = new System.Drawing.Point(550, 229);
             this.btn_Sil.Name = "btn_Sil";
             this.btn_Sil.Size = new System.Drawing.Size(60, 30);
             this.btn_Sil.TabIndex = 10;
@@ -616,12 +621,47 @@ namespace MSQL_Login_Form
             this.label4.TabIndex = 1;
             this.label4.Text = "Ürün:";
             // 
+            // btn_Hurda
+            // 
+            this.btn_Hurda.BackColor = System.Drawing.Color.White;
+            this.btn_Hurda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Hurda.Location = new System.Drawing.Point(748, 229);
+            this.btn_Hurda.Name = "btn_Hurda";
+            this.btn_Hurda.Size = new System.Drawing.Size(60, 30);
+            this.btn_Hurda.TabIndex = 26;
+            this.btn_Hurda.Text = "Hurda";
+            this.btn_Hurda.UseVisualStyleBackColor = false;
+            this.btn_Hurda.Click += new System.EventHandler(this.btn_Hurda_Click);
+            // 
+            // lbl_HurdaDurum
+            // 
+            this.lbl_HurdaDurum.AutoSize = true;
+            this.lbl_HurdaDurum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_HurdaDurum.ForeColor = System.Drawing.Color.White;
+            this.lbl_HurdaDurum.Location = new System.Drawing.Point(673, 17);
+            this.lbl_HurdaDurum.Name = "lbl_HurdaDurum";
+            this.lbl_HurdaDurum.Size = new System.Drawing.Size(19, 20);
+            this.lbl_HurdaDurum.TabIndex = 25;
+            this.lbl_HurdaDurum.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(531, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(136, 20);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Hurda Durumu :";
+            // 
             // ZimmetGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(34)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1200, 600);
+            this.Controls.Add(this.btn_Hurda);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.btn_Sil);
@@ -641,7 +681,7 @@ namespace MSQL_Login_Form
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ZimmetGiris";
             this.Text = "Zimmet Giris";
-            this.Load += new System.EventHandler(this.Anasayfa_Load);
+            this.Load += new System.EventHandler(this.ZimmetGiris_Load);
             this.pnl_AnasayfaTop.ResumeLayout(false);
             this.pnl_AnasayfaTop.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -712,7 +752,10 @@ namespace MSQL_Login_Form
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lbl_UrunKod;
+        private System.Windows.Forms.Label lbl_UrunID;
         public System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btn_Hurda;
+        private System.Windows.Forms.Label lbl_HurdaDurum;
+        public System.Windows.Forms.Label label12;
     }
 }

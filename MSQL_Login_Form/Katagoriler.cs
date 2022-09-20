@@ -23,9 +23,6 @@ namespace MSQL_Login_Form
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-
-
-
             DialogResult dialog = new DialogResult();
             dialog = MessageBox.Show("Bilgiler kayıt edilsin mi?", "Kayıt", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
@@ -141,9 +138,9 @@ namespace MSQL_Login_Form
             }
             else
             {
-                MessageBox.Show("Boş katagori Eklenemez!","HATA!");
+                MessageBox.Show("Boş katagori Eklenemez!", "HATA!");
             }
- 
+
 
         }
 
@@ -171,7 +168,6 @@ namespace MSQL_Login_Form
                 }
                 catch
                 {
-
                     MessageBox.Show("hata");
                 }
             }
